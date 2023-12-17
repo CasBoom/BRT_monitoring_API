@@ -12,6 +12,7 @@ class ValueController extends Controller
         Value::insert([
             'attribute_id' => $request->attr_id,
             'name' => $request->name,
+            'unit' => $request->unit,
             'value' => 0
         ]);
         return redirect('/value?attrId='.strval($request->attr_id));

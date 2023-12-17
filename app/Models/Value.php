@@ -15,6 +15,7 @@ class Value extends Model
     protected $fillable = [
         'name',
         'value',
+        'unit',
         'attribute_id'
     ];
 }

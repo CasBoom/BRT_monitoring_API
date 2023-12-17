@@ -14,6 +14,13 @@
         <div class="row">
                 <div class='block full'>
                     <h2>{{App\Models\Attribute::get()->where('id', $_GET['attrId'])[0]['name']}} -> Values</h2>
+                    <form method="post" action="{{@url('/value')}}">
+                        @csrf
+                        Name: <input type="text" name="name">
+                        Unit: <input type="text" name="unit">
+                        <input type="hidden" name="attr_id" value="{{$_GET['attrId']}}">
+                        <input type="submit" value="Submit"> 
+                    </form>
                     <table class="data"> 
                         <tr>
                             <th>Name</th>
@@ -24,7 +31,7 @@
                         <tr>
                                 <td>{{$value->name}}</td>
                                 <td>{{date('d-m-Y H:i:s', strtotime($value->createdAt))}}</td>
-                                <td><a href="{{@url('/attribute/delete/'.strval($value->id))}}">Delete</a></td>
+                                <td><a href="{{@url('/value/delete/'.strval($value->id).'?attrId='.strval($_GET['attrId']))}}">Delete</a></td>
                             </tr>
                         @endforeach
                     </table>

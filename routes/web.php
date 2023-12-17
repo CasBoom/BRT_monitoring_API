@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\TokenController;
+use App\Http\Controllers\ValueController;
+
 
 
 /*
@@ -42,11 +44,23 @@ Route::get('/value', [function () {
     return view('value');
 }])->middleware('auth');;
 
-//functions
+/***********\
+|*functions*|
+\***********/
+
+// User
 Route::get('/logout', [UserController::class,'logout']);
 Route::post('/login', [UserController::class,'login']);
 Route::post('/reset_password', [UserController::class, 'resetPassword'])->middleware('auth');
+
+// Attribute
 Route::post('/attribute', [AttributeController::class, 'create'])->middleware('auth');
 Route::get('/attribute/delete/{id}', [AttributeController::class,'delete'])->middleware('auth');
+
+// Values
+Route::post('/value', [ValueController::class, 'create'])->middleware('auth');
+Route::get('/value/delete/{id}', [ValueController::class,'delete'])->middleware('auth');
+
+// Tokens
 Route::post('/tokens', [TokenController::class, 'create'])->middleware('auth');
 Route::get('/tokens/delete/{id}', [TokenController::class,'delete'])->middleware('auth');

@@ -5,7 +5,7 @@
 @endsection
 @section('header')
     <h1>
-        {{App\Models\Attribute::get()->where('id', $_GET['attrId'])[0]['name']}} -> Values
+        {{App\Models\Attribute::get()->find($_GET['attrId'])->name}} -> Values
     </h1>
 @endsection
 @section('content')
@@ -13,7 +13,7 @@
         <h2>Data</h2>
         <div class="row">
                 <div class='block full'>
-                    <h2>{{App\Models\Attribute::get()->where('id', $_GET['attrId'])[0]['name']}} -> Values</h2>
+                    <h2>{{App\Models\Attribute::get()->find($_GET['attrId'])->name}} -> Values</h2>
                     <form method="post" action="{{@url('/value')}}">
                         @csrf
                         Name: <input type="text" name="name">

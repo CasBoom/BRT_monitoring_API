@@ -18,9 +18,13 @@ class AttributeController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        Attribute::insert([
+            'name' => $request->name,
+            'description' => $request->description
+        ]);
+        return redirect('/attribute');
     }
 
     /**

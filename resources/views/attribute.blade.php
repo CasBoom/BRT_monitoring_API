@@ -14,6 +14,12 @@
         <div class="row">
                 <div class='block full'>
                     <h2>Attributes</h2>
+                    <form method="post" action="{{@url('/attribute')}}">
+                        @csrf
+                        Name: <input type="text" name="name">
+                        Description: <input type="text" name="description">
+                        <input type="submit" value="Submit"> 
+                    </form>
                     <table class="data"> 
                         <tr>
                             <th>Name</th>

@@ -39,27 +39,35 @@ class AttributeController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Attribute $attribute)
+    public function delete(Request $request)
     {
-        //
+        if($request->id){
+            Attribute::find($request->id)->delete();
+        };
+        return redirect('/');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Attribute $attribute)
-    {
-        //
-    }
+    // /**
+    //  * Show the form for editing the specified resource.
+    //  */
+    // public function edit(Attribute $attribute)
+    // {
+    //     //
+    // }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Attribute $attribute)
-    {
-        //
-    }
+    // /**
+    //  * Update the specified resource in storage.
+    //  */
+    // public function update(Request $request, Attribute $attribute)
+    // {
+    //     //
+    // }
+
+    // /**
+    //  * Remove the specified resource from storage.
+    //  */
+    // public function destroy(Attribute $attribute)
+    // {
+    //     //
+    // }
 }

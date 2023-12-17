@@ -21,6 +21,9 @@
             <a href="{{@url('/tokens')}}">
                 Tokens
             </a>
+            <a href="{{@url('/attribute')}}">
+                Attributes
+            </a>
             <a href="{{@url('/')}}">
                 Dashboard
             </a>

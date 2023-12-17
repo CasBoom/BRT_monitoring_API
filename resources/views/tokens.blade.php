@@ -12,30 +12,31 @@
     <main>
         <h2>Data</h2>
         <div class="row">
-                <div class='block full'>
-                    <h2>Tokens</h2>
-                    <form>
-                        Name: <input type="text" name="name">
-                        Expiry date: <input type="date" name="expiresAt">
-                        <input type="submit" value="Submit"> 
-                    </form>
-                    <table class="data"> 
+            <div class='block full'>
+                <h2>Tokens</h2>
+                <form method="post" action="{{@url('/tokens')}}">
+                    @csrf
+                    Name: <input type="text" name="name">
+                    Expiry date: <input type="date" name="expiresAt">
+                    <input type="submit" value="Submit"> 
+                </form>
+                <table class="data"> 
+                    <tr>
+                        <th>Name</th>
+                        <th>Token</th>
+                        <th>Experires At</th>
+                        <th></th>
+                    </tr>
+                    @foreach(App\Models\Token::get() as $token)
                         <tr>
-                            <th>Name</th>
-                            <th>Token</th>
-                            <th>Experires At</th>
-                            <th></th>
+                            <td>{{$token->name}}</td>
+                            <td>{{$token->token}}</td>
+                            <td>{{date('d-m-Y H:i:s', strtotime($token->expiresAt))}}</td>
+                            <td><a href="/tokens">Delete</a></td>
                         </tr>
-                        @foreach(App\Models\Token::get() as $token)
-                            <tr>
-                                <td>{{$token->name}}</td>
-                                <td>{{$token->token}}</td>
-                                <td>{{date('d-m-Y H:i:s', strtotime($token->expiresAt))}}</td>
-                                <td><a>Delete</a></td>
-                            </tr>
-                        @endforeach
-                    </table>
-                </div>
+                    @endforeach
+                </table>
+            </div>
         </div>
     </main>
 @endsection

@@ -19,7 +19,7 @@
                         <summary>Details</summary>
                         <p>{{$attribute->description}}</p>
                     </details>
-                    <table> 
+                    <table class="data"> 
                         <tr>
                             <th>Name</th>
                             <th>Value</th>

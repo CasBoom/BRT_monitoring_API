@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AttributeController;
+use App\Http\Controllers\TokenController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,11 +33,19 @@ Route::get('/profile', function() {
     return view('profile');
 })->middleware('auth');
 
-Route::get('/login', ['as' => 'login','uses'=> function () {
-    return view('login');
-}]);
+Route::get('/attribute', [function () {
+    return view('attribute');
+}])->middleware('auth');;
+
+// Route::get('/value', [AttributeController::class, 'create'])->middleware('auth');
+Route::get('/value', [function () {
+    return view('value');
+}])->middleware('auth');;
 
 //functions
 Route::get('/logout', [UserController::class,'logout']);
 Route::post('/login', [UserController::class,'login']);
 Route::post('/reset_password', [UserController::class, 'resetPassword'])->middleware('auth');
+Route::post('/attribute', [AttributeController::class, 'create'])->middleware('auth');
+Route::get('/attribute/delete/{id}', [UserController::class,'delete'])->middleware('auth');
+Route::post('/tokens', [TokenController::class, 'create'])->middleware('auth');

@@ -27,7 +27,7 @@
                         @foreach(App\Models\Value::where('attribute_id','=', $attribute->id)->get() as $value)
                             <tr>
                                 <td>{{$value->name}}</td>
-                                <td>{{$value->value}}</td>
+                                <td>{{$value->value . ' ' . $value->unit}}</td>
                             </tr>
                         @endforeach
                     </table>

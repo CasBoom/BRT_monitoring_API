@@ -25,14 +25,12 @@
                         <tr>
                             <th>Name</th>
                             <th>Unit</th>
-                            <th>Created at</th>
                             <th></th>
                         </tr>
                         @foreach(App\Models\Value::get()->where('attribute_id', $_GET['attrId']) as $value)
                         <tr>
                                 <td>{{$value->name}}</td>
                                 <td>{{$value->unit}}</td>
-                                <td>{{date('d-m-Y H:i:s', strtotime($value->createdAt))}}</td>
                                 <td><a href="{{@url('/value/delete/'.strval($value->id).'?attrId='.strval($_GET['attrId']))}}">Delete</a></td>
                             </tr>
                         @endforeach

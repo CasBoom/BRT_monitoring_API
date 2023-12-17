@@ -16,6 +16,8 @@ class Value extends Model
         'name',
         'value',
         'unit',
-        'attribute_id'
+        'attribute_id', 
+        'created_at'
     ];
+    public $timestamps = true;
 }

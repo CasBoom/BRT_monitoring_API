@@ -17,12 +17,14 @@ class Attribute extends Model
      */
     protected $fillable = [
         'name',
-        'description',
+        'description', 
+        'created_at'
     ];
 
     public function values(){
         return $this->hasMany(Value::class, 'attribute_id');
     }
+    public $timestamps = true;
 
     use HasFactory;
 

@@ -19,4 +19,5 @@ class Token extends Model
         'name',
         'created_at'
     ];
+    public $timestamps = true;
 }

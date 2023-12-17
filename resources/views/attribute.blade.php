@@ -24,7 +24,6 @@
                         <tr>
                             <th>Name</th>
                             <th>Description</th>
-                            <th>Created at</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -32,7 +31,6 @@
                         <tr>
                                 <td>{{$attribute->name}}</td>
                                 <td>{{$attribute->description}}</td>
-                                <td>{{date('d-m-Y H:i:s', strtotime($attribute->createdAt))}}</td>
                                 <td><a href="{{@url('/value?attrId='.strval($attribute->id))}}">Value</a></td>
                                 <td><a href="{{@url('/attribute/delete/'.strval($attribute->id))}}">Delete</a></td>
                             </tr>

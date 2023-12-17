@@ -39,12 +39,12 @@ class AttributeController extends Controller
         //
     }
 
-    public function delete(Request $request)
+    public function delete($id)
     {
-        if($request->id){
-            Attribute::find($request->id)->delete();
+        if(isset($id)){
+            Attribute::find($id)->delete();
         };
-        return redirect('/');
+        return redirect('/attribute');
     }
 
     // /**

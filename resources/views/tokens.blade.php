@@ -32,7 +32,7 @@
                             <td>{{$token->name}}</td>
                             <td>{{$token->token}}</td>
                             <td>{{date('d-m-Y H:i:s', strtotime($token->expiresAt))}}</td>
-                            <td><a href="/tokens">Delete</a></td>
+                            <td><a href="{{@url('/tokens/delete/'.strval($token->id))}}">Delete</a></td>
                         </tr>
                     @endforeach
                 </table>

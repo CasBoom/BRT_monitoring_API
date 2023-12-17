@@ -17,10 +17,10 @@ class TokenController extends Controller
         return redirect('/tokens');
     }
 
-    public function delete(Request $request)
+    public function delete($id)
     {
-        if(isset($_POST['id'])){
-            Token::find($_POST['id'])->delete();
+        if(isset($id)){
+            Token::find($id)->delete();
         };
         return redirect('/tokens');
     }

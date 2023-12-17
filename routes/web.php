@@ -47,5 +47,6 @@ Route::get('/logout', [UserController::class,'logout']);
 Route::post('/login', [UserController::class,'login']);
 Route::post('/reset_password', [UserController::class, 'resetPassword'])->middleware('auth');
 Route::post('/attribute', [AttributeController::class, 'create'])->middleware('auth');
-Route::get('/attribute/delete/{id}', [UserController::class,'delete'])->middleware('auth');
+Route::get('/attribute/delete/{id}', [AttributeController::class,'delete'])->middleware('auth');
 Route::post('/tokens', [TokenController::class, 'create'])->middleware('auth');
+Route::get('/tokens/delete/{id}', [TokenController::class,'delete'])->middleware('auth');

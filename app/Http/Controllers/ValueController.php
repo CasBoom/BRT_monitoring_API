@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Token;
 use App\Models\Value;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ValueController extends Controller
 {
@@ -28,7 +29,7 @@ class ValueController extends Controller
     }
 
     public function update($id, Request $request){
-        if(Token::where('token', $request->token)->exists()){                
+        if(Token::where('token', $request->token)->where('expiresAt', '>', Carbon::now())->exists()){                
             if(isset($id)&&Value::where('id', $id)->exists()){
                 Value::where('id', $id)->update(['value' => $request->value]);
                 return response('', 201);

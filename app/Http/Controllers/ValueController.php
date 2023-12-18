@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Token;
 use App\Models\Value;
 use Illuminate\Http\Request;
 
@@ -24,5 +25,16 @@ class ValueController extends Controller
             Value::find($id)->delete();
         };
         return redirect('/value?attrId='.strval($_GET['attrId']));
+    }
+
+    public function update($id, Request $request){
+        if(Token::where('token', $request->token)->exists()){                
+            if(isset($id)&&Value::where('id', $id)->exists()){
+                Value::where('id', $id)->update(['value' => $request->value]);
+                return response('', 201);
+            }
+            return response('', 404);
+        }
+        return response('', 401);
     }
 }

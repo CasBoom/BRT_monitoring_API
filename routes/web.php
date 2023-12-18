@@ -60,6 +60,7 @@ Route::get('/attribute/delete/{id}', [AttributeController::class,'delete'])->mid
 // Values
 Route::post('/value', [ValueController::class, 'create'])->middleware('auth');
 Route::get('/value/delete/{id}', [ValueController::class,'delete'])->middleware('auth');
+Route::post('/value/update/{id}', [ValueController::class, 'update']);
 
 // Tokens
 Route::post('/tokens', [TokenController::class, 'create'])->middleware('auth');

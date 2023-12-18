@@ -15,10 +15,7 @@
             @foreach(App\Models\Attribute::get() as $attribute)
                 <div class='block half'>
                     <h2>{{$attribute->name}}</h2>
-                    <details>
-                        <summary>Details</summary>
                         <p>{{$attribute->description}}</p>
-                    </details>
                     <table class="data"> 
                         <tr>
                             <th>Name</th>

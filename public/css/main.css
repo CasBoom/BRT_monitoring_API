@@ -82,20 +82,21 @@ a:link {
 .row{
     margin-bottom:5px;
     width:100%;
-    display:flex;
+    display:inline-block;
 }
 
 .block{
     height:inherit;
     margin-left:5px;
     margin-right:5px;
+    display:inline-block;
     border: 1px solid #c9c9c9;
     border-radius: 5px;
     min-height: 10px;
 }
 
 .half{
-    width:calc(50% - 10px);
+    width:calc(50% - 15px);
 }
 
 .data{
@@ -110,8 +111,4 @@ a:link {
 
 .full{
     width:calc(100% - 10px);
-}
-
-.litre{
-    width:45px;
 }

@@ -83,6 +83,7 @@ a:link {
     margin-bottom:5px;
     width:100%;
     display:inline-block;
+    overflow:hidden;
 }
 
 .block{

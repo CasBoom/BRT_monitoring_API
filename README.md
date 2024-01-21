@@ -17,9 +17,9 @@ Note: Values can *only* be updated via the `/value/update/{id}` endpoint!
 
 ## updating a value
 Updating a value can be done easily! In order to update a value you'll only need three things.
-*The ID of the value you want to update
-*The new value
-*A valid token
+- The ID of the value you want to update
+- The new value
+- A valid token
 Now you can proceed with a call to `{host}/value/update/{id}`
 add your token and value as "token"=token and "value"=value 
 

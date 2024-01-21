@@ -1,4 +1,4 @@
-<div wire:poll>
+<div wire:poll.1s>
     @foreach(App\Models\Attribute::get() as $attribute)
         <div class='block half'>
             <h2>{{$attribute->name}}</h2>

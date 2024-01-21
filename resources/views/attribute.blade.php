@@ -10,7 +10,6 @@
 @endsection
 @section('content')
     <main>
-        <h2>Data</h2>
         <div class="row">
                 <div class='block full'>
                     <h2>Attributes</h2>
